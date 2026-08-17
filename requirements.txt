@@ -1,1 +1,5 @@
-streamlit>=1.40,<2\ntensorflow>=2.16,<2.21\nnumpy>=1.26,<3\npandas>=2.0,<3\npillow>=10,<12\n
+streamlit
+tensorflow
+numpy
+pandas
+pillow
