@@ -36,7 +36,29 @@ with st.sidebar:
 
 model = load_model()
 
-uploaded = st.file_uploader("📤 Upload an image", type=["jpg", "jpeg", "png", "webp"])
+# uploaded = st.file_uploader("📤 Upload an image", type=["jpg", "jpeg", "png", "webp"])
+st.subheader("📸 Give the AI an image")
+
+input_method = st.radio(
+    "Choose how you want to provide the image:",
+    ["📁 Upload Image", "📷 Capture Image"],
+    horizontal=True
+)
+
+uploaded = None
+
+if input_method == "📁 Upload Image":
+    uploaded = st.file_uploader(
+        "Choose an image",
+        type=["jpg", "jpeg", "png", "webp"],
+        help="Upload an image from your device."
+    )
+
+else:
+    uploaded = st.camera_input(
+        "Take a picture"
+    )
+    
 if not uploaded:
     st.subheader("🎯 How to use this in class")
     st.write("1. Upload an image.  2. Ask students to predict.  3. Reveal AI's answer.  4. Discuss whether it is correct.")
